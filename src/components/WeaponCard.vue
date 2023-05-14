@@ -4,7 +4,7 @@
             <img :src="weapon.image" alt="weapon image" class="card-img-top weapon-image">
         </div>
         <div class="card-body">
-            <h5 class="card-title text-center">{{ weapon.name }}</h5>
+            <h3 class="card-title text-center">{{ weapon.name }}</h3>
             <p class="card-desc text-center">{{ weapon.category }}</p>
             <weapon-table :attack="weapon.attack" :requiredAttributes="weapon.requiredAttributes" />
         </div>
@@ -30,7 +30,7 @@ export default {
 <!-- Your styles here -->
 <style lang="scss">
 .weapon-image-container {
-    background-color: $color-darkest;
+    transition: background-color 0.3s ease;
     margin: 1rem;
     border-radius: 4px;
 }
@@ -43,15 +43,20 @@ export default {
 .card {
     width: 100%;
     margin: 1rem 0;
-    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, scale 0.3s ease;
     background-color: $color-secondary !important;
     border: 1px solid $color-primary;
-    border-radius: 8px;
+    border-radius: 4px;
     color: $color-primary;
+    scale: 100%;
 
     &:hover {
-        box-shadow: 0px 2px $color-accent;
-        transform: translate(-0px, -8px);
+        .weapon-image-container {
+            background-color: $color-highlight;
+        }
+        box-shadow: 0px 4px $color-accent;
+        transform: translate(-0px, -4px);
+        scale: 1.10;
     }
 }
 
