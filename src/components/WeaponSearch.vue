@@ -1,14 +1,10 @@
 <template>
     <div>
         <SearchBar @search="searchWeapons" />
-        <!-- <SearchBar @search="searchSorceries" /> -->
         <div class="row custom-row">
             <div v-for="weapon in weaponsWithNonZeroAttack" :key="weapon.id" class="col-12 col-sm-6 col-md-4 col-lg-2 custom-col">
                 <WeaponCard :weapon="weapon" />
             </div>
-            <!-- <div v-for="sorcery in sorceries" :key="sorcery.id" class="col-12 col-sm-6 col-md-4 col-lg-2 custom-col">
-                <h3>{{ sorcery.name }}</h3>
-            </div> -->
         </div>
     </div>
 </template>
@@ -28,12 +24,13 @@ export default {
             searchQuery: "",
             weapons: [],
             sorceries: [],
+            incantations: [],
         };
     },
     methods: {
-        async searchAll(searchQuery) {
-            await this.searchWeapons(searchQuery);
+        async searchSpells(searchQuery) {
             await this.searchSorceries(searchQuery);
+            await this.searchIncantations(searchQuery);
         },
         async searchWeapons(searchQuery) {
             if (!searchQuery) return;
@@ -53,6 +50,15 @@ export default {
                 console.error(error);
             }
         },
+        async searchIncantations(searchQuery) {
+            if (!searchQuery) return;
+            try {
+                const response = await axios.get(`https://eldenring.fanapis.com/api/incantations?name=${encodeURIComponent(searchQuery)}&limit=12`);
+                this.incantations = response.data.data;
+            } catch (error) {
+                console.error(error);
+            }
+        },
     },
     computed: {
         weaponsWithNonZeroAttack() {
@@ -66,8 +72,8 @@ export default {
 
                     return {
                         name: attrName,
-                        amount: requiredAttr ? requiredAttr.amount : "-",
-                        scaling: scalingAttr ? scalingAttr.scaling : "-",
+                        amount: requiredAttr ? requiredAttr.amount : 0,
+                        scaling: scalingAttr ? scalingAttr.scaling : 0,
                     };
                 });
 

@@ -1,17 +1,20 @@
 <template>
   <div id="app">
+    <CharacterSheet />
     <WeaponSearch />
   </div>
 </template>
 
 <script>
-import WeaponSearch from './components/WeaponSearch.vue';  
+import CharacterSheet from './components/CharacterSheet.vue';
+import WeaponSearch from './components/WeaponSearch.vue';
 
 export default {
   name: 'App',
   components: {
-    WeaponSearch
-  }
+    WeaponSearch,
+    CharacterSheet
+}
 };
 </script>
 
@@ -23,5 +26,6 @@ export default {
   margin-left: 3rem;
   border-radius: 8px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: $color-primary;
 }
 </style>
