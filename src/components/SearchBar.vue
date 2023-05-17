@@ -22,6 +22,11 @@ export default {
 
 <!-- Your styles here -->
 <style lang="scss">
+.searchbar-title {
+    color: $color-tertiary;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 6rem;
+}
 .searchbar-container {
     display: flex;
     justify-content: center;
@@ -39,7 +44,7 @@ export default {
     padding-left: .5rem;
     color: $color-primary;
     border: 2px solid $color-secondary;
-
+    
     &:focus{
         border: 2px solid #6272a4;
     }

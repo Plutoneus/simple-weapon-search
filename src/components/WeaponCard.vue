@@ -52,7 +52,7 @@ export default {
 
     &:hover {
         .weapon-image-container {
-            background-color: $color-highlight;
+            background-color: $color-darkest;
         }
         box-shadow: 0px 4px $color-accent;
         transform: translate(-0px, -4px);

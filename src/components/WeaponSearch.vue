@@ -1,15 +1,19 @@
 <template>
     <div>
         <SearchBar @search="searchWeapons" />
+        <!-- <SearchBar @search="searchSorceries" /> -->
         <div class="row custom-row">
             <div v-for="weapon in weaponsWithNonZeroAttack" :key="weapon.id" class="col-12 col-sm-6 col-md-4 col-lg-2 custom-col">
                 <WeaponCard :weapon="weapon" />
             </div>
+            <!-- <div v-for="sorcery in sorceries" :key="sorcery.id" class="col-12 col-sm-6 col-md-4 col-lg-2 custom-col">
+                <h3>{{ sorcery.name }}</h3>
+            </div> -->
         </div>
     </div>
 </template>
 
-<script>
+<script> 
 import axios from "axios";
 import SearchBar from './SearchBar.vue';
 import WeaponCard from './WeaponCard.vue';
@@ -23,14 +27,28 @@ export default {
         return {
             searchQuery: "",
             weapons: [],
+            sorceries: [],
         };
     },
     methods: {
+        async searchAll(searchQuery) {
+            await this.searchWeapons(searchQuery);
+            await this.searchSorceries(searchQuery);
+        },
         async searchWeapons(searchQuery) {
             if (!searchQuery) return;
             try {
                 const response = await axios.get(`https://eldenring.fanapis.com/api/weapons?name=${encodeURIComponent(searchQuery)}&limit=12`);
                 this.weapons = response.data.data;
+            } catch (error) {
+                console.error(error);
+            }
+        },
+        async searchSorceries(searchQuery) {
+            if (!searchQuery) return;
+            try {
+                const response = await axios.get(`https://eldenring.fanapis.com/api/sorceries?name=${encodeURIComponent(searchQuery)}&limit=12`);
+                this.sorceries = response.data.data;
             } catch (error) {
                 console.error(error);
             }
