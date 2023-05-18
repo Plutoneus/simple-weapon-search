@@ -1,6 +1,6 @@
 <template>
     <div class="form-container">
-        <form >
+        <form class="text-center">
             <label>
                 Strength
                 <input class="stat-input" type="number" v-model.number="str" @input="emitUpdate">
@@ -67,15 +67,14 @@ form {
   gap: 1rem;
 }
 .stat-input {
-    width: 25%;
     display: flex;
-    // font-size: 1.25rem;
     margin-top: .25rem;
     margin-bottom: .25rem;
-    // width: 50%;
+    // font-size: 50%;
+    height: 60%;
     outline: none;
     background-color: $color-secondary;
-    border-radius: 2px;
+    border-radius: 4px;
     padding-left: .5rem;
     color: $color-primary;
     border: 2px solid $color-secondary;
@@ -84,4 +83,18 @@ form {
         border: 2px solid #6272a4;
     }
 }
+
+.stat-input[type="number"] {
+    -webkit-appearance: textfield; /* for Chrome */
+    -moz-appearance: textfield; /* for Firefox */
+    appearance: textfield; /* Standard syntax, currently not fully supported by all browsers */
+}
+
+/* For Chrome */
+.stat-input[type="number"]::-webkit-inner-spin-button, 
+.stat-input[type="number"]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
 </style>

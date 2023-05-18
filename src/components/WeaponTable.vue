@@ -45,7 +45,12 @@ export default {
     methods: {
         canEquip(stat, requiredAmount) {
             const lowercaseStat = stat.toLowerCase();
-            return this.characterStats[lowercaseStat] >= requiredAmount;
+            if (lowercaseStat == "str") {
+                return this.characterStats[lowercaseStat] >= (requiredAmount / 1.5);
+            }
+            else {
+                return this.characterStats[lowercaseStat] >= requiredAmount;
+            }
         },
     },
 };
