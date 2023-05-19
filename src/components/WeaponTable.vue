@@ -17,9 +17,11 @@
         </thead>
         <tr v-for="attribute in requiredAttributes" :key="attribute.name">
             <td>{{ attribute.name }}</td>
-            <td>{{ attribute.amount }}</td>
-            <td>{{ attribute.scaling }}</td>
-            <td v-if="!canEquip(attribute.name, attribute.amount)" class="fail text-center">✗</td>
+            <td v-if="(attribute.amount != 0)">{{ attribute.amount }}</td>
+            <td v-else>-</td>
+            <td v-if="(attribute.scaling != 0)">{{ attribute.scaling }}</td>
+            <td v-else>-</td>
+            <td v-if="!canEquip(attribute.name, attribute.amount)" class="fail text-center">✕</td>
             <td v-else class="pass text-center">✓</td>
         </tr>
     </table>

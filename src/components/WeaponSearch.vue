@@ -72,8 +72,8 @@ export default {
 
                     return {
                         name: attrName,
-                        amount: requiredAttr ? requiredAttr.amount : 0,
-                        scaling: scalingAttr ? scalingAttr.scaling : 0,
+                        amount: requiredAttr ? requiredAttr.amount : 0, // Req
+                        scaling: scalingAttr ? scalingAttr.scaling : 0, // Scale
                     };
                 });
 
