@@ -32,7 +32,7 @@ export default {
 .weapon-image-container {
     transition: background-color 0.3s ease;
     margin: 1rem;
-    border-radius: 4px;
+    border-radius: 2px;
 }
 .weapon-image {
     width: 100%;
@@ -43,20 +43,19 @@ export default {
 .card {
     width: 100%;
     margin: 1rem 0;
-    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, scale 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, scale 0.3s ease, border 0.5s ease;
     background-color: $color-secondary !important;
-    border: 1px solid $color-primary;
-    border-radius: 4px;
+    border: 1px solid $color-accent !important;
+    border-radius: 2px;
     color: $color-primary;
     scale: 100%;
-
+    
     &:hover {
-        .weapon-image-container {
-            background-color: $color-darkest;
-        }
-        box-shadow: 0px 4px $color-accent;
-        transform: translate(-0px, -4px);
-        scale: 1.10;
+        // background-color: $color-darkblue !important;
+        // box-shadow: 0px 4px $color-accent;
+        border: 1px solid $color-highlight !important;
+        box-shadow: 6px 6px $color-darkest;
+        transform: translate(-6px, -6px);
     }
 }
 

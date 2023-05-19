@@ -74,7 +74,7 @@ form {
     // font-size: 50%;
     height: 60%;
     outline: none;
-    background-color: $color-secondary;
+    background-color: $color-darkest;
     border-radius: 4px;
     padding-left: .5rem;
     color: $color-primary;

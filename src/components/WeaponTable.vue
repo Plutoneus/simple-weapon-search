@@ -14,15 +14,19 @@
             <th>Stat</th>
             <th>Req</th>
             <th>Scale</th>
+            <th>Equip</th>
         </thead>
         <tr v-for="attribute in requiredAttributes" :key="attribute.name">
             <td>{{ attribute.name }}</td>
+            
             <td v-if="(attribute.amount != 0)">{{ attribute.amount }}</td>
             <td v-else>-</td>
+
             <td v-if="(attribute.scaling != 0)">{{ attribute.scaling }}</td>
             <td v-else>-</td>
-            <td v-if="!canEquip(attribute.name, attribute.amount)" class="fail text-center">✕</td>
-            <td v-else class="pass text-center">✓</td>
+            <td v-if="!canEquip(attribute.name, attribute.amount)" class="fail">✕</td>
+            <td v-else-if="(attribute.name == 'Str' && attribute.amount > characterStats['str'])" class="pass">2H</td>
+            <td v-else class="pass">✓</td>
         </tr>
     </table>
 </template>
@@ -45,6 +49,7 @@ export default {
       ...mapState(['characterStats']),
     },
     methods: {
+        // Determines binary equipability based on stat, adjusted with strength
         canEquip(stat, requiredAmount) {
             const lowercaseStat = stat.toLowerCase();
             if (lowercaseStat == "str") {

@@ -39,7 +39,7 @@ export default {
     margin-bottom: 2rem;
     width: 50%;
     outline: none;
-    background-color: $color-secondary;
+    background-color: $color-darkest;
     border-radius: 8px;
     padding-left: .5rem;
     color: $color-primary;
