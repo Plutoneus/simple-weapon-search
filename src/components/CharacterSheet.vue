@@ -1,4 +1,5 @@
 <template>
+  <h2 class="text-center">Character Stats</h2>
     <div class="form-container">
         <form class="text-center">
             <label>

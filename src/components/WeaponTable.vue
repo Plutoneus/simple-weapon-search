@@ -19,8 +19,8 @@
             <td>{{ attribute.name }}</td>
             <td>{{ attribute.amount }}</td>
             <td>{{ attribute.scaling }}</td>
-            <td v-if="!canEquip(attribute.name, attribute.amount)" class="fail text-center">X</td>
-            <td v-else class="pass text-center">O</td>
+            <td v-if="!canEquip(attribute.name, attribute.amount)" class="fail text-center">✗</td>
+            <td v-else class="pass text-center">✓</td>
         </tr>
     </table>
 </template>
