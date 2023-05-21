@@ -1,6 +1,8 @@
 <template>
     <div>
         <SearchBar @search="searchWeapons" />
+        <button @click="previousPage">Previous Page</button>
+        <button @click="nextPage">Next Page</button>
         <div class="row custom-row">
             <div v-for="weapon in weaponsWithNonZeroAttack" :key="weapon.id" class="col-12 col-sm-6 col-md-4 col-lg-2 custom-col">
                 <WeaponCard :weapon="weapon" />
@@ -25,6 +27,8 @@ export default {
             weapons: [],
             sorceries: [],
             incantations: [],
+            currentPage: 0,
+            currentQuery: "",
         };
     },
     methods: {
@@ -33,9 +37,11 @@ export default {
             await this.searchIncantations(searchQuery);
         },
         async searchWeapons(searchQuery) {
+            console.log("I am searching for ", searchQuery);
             if (!searchQuery) return;
+            this.currentQuery = searchQuery;  // Save the query
             try {
-                const response = await axios.get(`https://eldenring.fanapis.com/api/weapons?name=${encodeURIComponent(searchQuery)}&limit=12`);
+                const response = await axios.get(`https://eldenring.fanapis.com/api/weapons?name=${encodeURIComponent(searchQuery)}&limit=12&page=${this.currentPage}`);
                 this.weapons = response.data.data;
             } catch (error) {
                 console.error(error);
@@ -57,6 +63,16 @@ export default {
                 this.incantations = response.data.data;
             } catch (error) {
                 console.error(error);
+            }
+        },
+        nextPage() {
+            this.currentPage += 1;
+            this.searchWeapons(this.currentQuery);
+        },
+        previousPage() {
+            if (this.currentPage > 0) {
+                this.currentPage -= 1;
+                this.searchWeapons(this.currentQuery);
             }
         },
     },
