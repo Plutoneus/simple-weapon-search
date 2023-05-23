@@ -25,42 +25,18 @@ export default {
         return {
             searchQuery: "",
             weapons: [],
-            sorceries: [],
-            incantations: [],
             currentPage: 0,
             currentQuery: "",
         };
     },
     methods: {
-        async searchSpells(searchQuery) {
-            await this.searchSorceries(searchQuery);
-            await this.searchIncantations(searchQuery);
-        },
         async searchWeapons(searchQuery) {
-            console.log("I am searching for ", searchQuery);
             if (!searchQuery) return;
             this.currentQuery = searchQuery;  // Save the query
             try {
                 const response = await axios.get(`https://eldenring.fanapis.com/api/weapons?name=${encodeURIComponent(searchQuery)}&limit=12&page=${this.currentPage}`);
                 this.weapons = response.data.data;
-            } catch (error) {
-                console.error(error);
-            }
-        },
-        async searchSorceries(searchQuery) {
-            if (!searchQuery) return;
-            try {
-                const response = await axios.get(`https://eldenring.fanapis.com/api/sorceries?name=${encodeURIComponent(searchQuery)}&limit=12`);
-                this.sorceries = response.data.data;
-            } catch (error) {
-                console.error(error);
-            }
-        },
-        async searchIncantations(searchQuery) {
-            if (!searchQuery) return;
-            try {
-                const response = await axios.get(`https://eldenring.fanapis.com/api/incantations?name=${encodeURIComponent(searchQuery)}&limit=12`);
-                this.incantations = response.data.data;
+                console.log(response.data.count)
             } catch (error) {
                 console.error(error);
             }
