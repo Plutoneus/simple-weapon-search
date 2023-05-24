@@ -1,13 +1,13 @@
 <template>
     <div>
         <SearchBar @search="searchWeapons" />
-        <button @click="previousPage">Previous Page</button>
-        <button @click="nextPage">Next Page</button>
         <div class="row custom-row">
             <div v-for="weapon in weaponsWithNonZeroAttack" :key="weapon.id" class="col-12 col-sm-6 col-md-4 col-lg-2 custom-col">
                 <WeaponCard :weapon="weapon" />
             </div>
         </div>
+        <button class="nav-arrow" @click="previousPage">◀</button>
+        <button class="nav-arrow" @click="nextPage">▶</button>
     </div>
 </template>
 
@@ -82,7 +82,6 @@ export default {
 
 
 <style lang="scss">
-
 .custom-row {
     margin-right: 3rem;
     margin-left: 3rem;
@@ -90,5 +89,21 @@ export default {
 .custom-col {
     padding: 1rem;
     margin-bottom: 3rem;
+}
+.nav-arrow {
+    font-size: 2rem;
+    color: $color-darkest;
+    background-color: $color-accent;
+    border: none;
+    padding: 1rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    transition: opacity 0.3s ease;
+    &:hover {
+        background-color: $color-accent;
+        opacity: 60%;
+    }
 }
 </style>
