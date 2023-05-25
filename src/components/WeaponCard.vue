@@ -38,11 +38,10 @@ export default {
     width: 100%;
     height: 180px;
     object-fit: contain;
-    padding: .5rem;
+    padding: 0rem;
 }
 .card {
-    width: 100%;
-    margin: 1rem 0;
+    // width: 100%;
     transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, scale 0.3s ease, border 0.5s ease;
     background-color: $color-secondary !important;
     border: 1px solid $color-accent !important;

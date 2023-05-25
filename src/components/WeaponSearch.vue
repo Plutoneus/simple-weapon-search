@@ -6,8 +6,10 @@
                 <WeaponCard :weapon="weapon" />
             </div>
         </div>
-        <button class="nav-arrow" @click="previousPage">◀</button>
-        <button class="nav-arrow" @click="nextPage">▶</button>
+        <div class="page-nav">
+            <button class="nav-arrow" @click="previousPage">◀</button>
+            <button class="nav-arrow" @click="nextPage">▶</button>
+        </div>
     </div>
 </template>
 
@@ -34,7 +36,7 @@ export default {
             if (!searchQuery) return;
             this.currentQuery = searchQuery;  // Save the query
             try {
-                const response = await axios.get(`https://eldenring.fanapis.com/api/weapons?name=${encodeURIComponent(searchQuery)}&limit=12&page=${this.currentPage}`);
+                const response = await axios.get(`https://eldenring.fanapis.com/api/weapons?name=${encodeURIComponent(searchQuery)}&limit=6&page=${this.currentPage}`);
                 this.weapons = response.data.data;
                 console.log(response.data.count)
             } catch (error) {
@@ -83,27 +85,28 @@ export default {
 
 <style lang="scss">
 .custom-row {
-    margin-right: 3rem;
-    margin-left: 3rem;
+    margin: 0rem 3rem;
 }
 .custom-col {
     padding: 1rem;
     margin-bottom: 3rem;
 }
-.nav-arrow {
-    font-size: 2rem;
-    color: $color-darkest;
-    background-color: $color-accent;
-    border: none;
-    padding: 1rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    margin-bottom: 2rem;
-    border-radius: 4px;
-    transition: opacity 0.3s ease;
-    &:hover {
+.page-nav {
+    display: flex;
+    justify-content: center;
+    .nav-arrow {
+        font-size: 1.5rem;
+        color: $color-darkest;
         background-color: $color-accent;
-        opacity: 60%;
+        border: none;
+        padding: 0rem .5rem;
+        margin: 2rem 2rem;
+        border-radius: 4px;
+        transition: opacity 0.3s ease;
+        &:hover {
+            background-color: $color-accent;
+            opacity: 80%;
+        }
     }
 }
 </style>

@@ -1,25 +1,24 @@
 <template>
-  <h2 class="text-center">Character Stats</h2>
     <div class="form-container">
         <form class="text-center">
             <label>
-                Strength
+                STR
                 <input class="stat-input" type="number" v-model.number="str" @input="emitUpdate">
             </label>
             <label>
-                Dexterity
+                DEX
                 <input class="stat-input" type="number" v-model.number="dex" @input="emitUpdate">
             </label>
             <label>
-                Intelligence
+                INT
                 <input class="stat-input" type="number" v-model.number="int" @input="emitUpdate">
             </label>
             <label>
-                Faith
+                FAI
                 <input class="stat-input" type="number" v-model.number="fai" @input="emitUpdate">
             </label>
             <label>
-                Arcane
+                ARC
                 <input class="stat-input" type="number" v-model.number="arc" @input="emitUpdate">
             </label>
         </form>
@@ -65,14 +64,18 @@ export default {
 }
 form {
   display: flex;
+  justify-content: center;
   gap: 1rem;
 }
+// label {
+//   display: flex;
+//   justify-content: center;
+// }
 .stat-input {
     display: flex;
-    margin-top: .25rem;
-    margin-bottom: .25rem;
-    // font-size: 50%;
+    margin: .25rem 0rem;
     height: 60%;
+    // width: 60%;
     outline: none;
     background-color: $color-darkest;
     border-radius: 4px;
