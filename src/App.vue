@@ -6,14 +6,12 @@
 </template>
 
 <script>
-import CharacterSheet from './components/CharacterSheet.vue';
 import WeaponSearch from './components/WeaponSearch.vue';
 
 export default {
   name: 'App',
   components: {
     WeaponSearch,
-    CharacterSheet
 }
 };
 </script>

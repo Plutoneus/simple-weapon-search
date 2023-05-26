@@ -1,29 +1,30 @@
 <template>
-    <div class="form-container">
-        <form class="text-center">
-            <label>
-                STR
-                <input class="stat-input" type="number" v-model.number="str" @input="emitUpdate">
-            </label>
-            <label>
-                DEX
-                <input class="stat-input" type="number" v-model.number="dex" @input="emitUpdate">
-            </label>
-            <label>
-                INT
-                <input class="stat-input" type="number" v-model.number="int" @input="emitUpdate">
-            </label>
-            <label>
-                FAI
-                <input class="stat-input" type="number" v-model.number="fai" @input="emitUpdate">
-            </label>
-            <label>
-                ARC
-                <input class="stat-input" type="number" v-model.number="arc" @input="emitUpdate">
-            </label>
-        </form>
-    </div>
+  <div class="form-container">
+      <form class="text-center row">
+          <div class="stat col-sm-2">
+              <label for="str">STR</label>
+              <input id="str" class="stat-input" type="number" v-model.number="str" @input="emitUpdate">
+          </div>
+          <div class="stat col-sm-2">
+              <label for="dex">DEX</label>
+              <input id="dex" class="stat-input" type="number" v-model.number="dex" @input="emitUpdate">
+          </div>
+          <div class="stat col-sm-2">
+              <label for="int">INT</label>
+              <input id="int" class="stat-input" type="number" v-model.number="int" @input="emitUpdate">
+          </div>
+          <div class="stat col-sm-2">
+              <label for="fai">FAI</label>
+              <input id="fai" class="stat-input" type="number" v-model.number="fai" @input="emitUpdate">
+          </div>
+          <div class="stat col-sm-2">
+              <label for="arc">ARC</label>
+              <input id="arc" class="stat-input" type="number" v-model.number="arc" @input="emitUpdate">
+          </div>
+      </form>
+  </div>
 </template>
+
 
 <script>
 import { mapMutations } from 'vuex';
@@ -61,31 +62,26 @@ export default {
     justify-content: center;
     margin: 0;
     padding: 0;
-}
+  }
 form {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-// label {
-//   display: flex;
-//   justify-content: center;
-// }
-.stat-input {
     display: flex;
-    margin: .25rem 0rem;
-    height: 60%;
-    // width: 60%;
-    outline: none;
-    background-color: $color-darkest;
-    border-radius: 4px;
-    padding-left: .5rem;
-    color: $color-primary;
-    border: 2px solid $color-secondary;
+    justify-content: center;
+    gap: 1rem;
+}
+.stat-input {
+  display: flex;
+  outline: none;
+  width: 100%;
+  background-color: $color-darkest;
+  border-radius: 8px;
+  padding-left: .5rem;
+  margin-bottom: 1rem;
+  color: $color-primary;
+  border: 2px solid $color-secondary;
     
-    &:focus{
-        border: 2px solid #6272a4;
-    }
+  &:focus{
+      border: 2px solid #6272a4;
+  }
 }
 
 .stat-input[type="number"] {

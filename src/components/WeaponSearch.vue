@@ -92,15 +92,20 @@ export default {
     margin-bottom: 3rem;
 }
 .page-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     .nav-arrow {
         font-size: 1.5rem;
         color: $color-darkest;
         background-color: $color-accent;
         border: none;
         padding: 0rem .5rem;
-        margin: 2rem 2rem;
+        margin: 2rem auto; // updated this line
         border-radius: 4px;
         transition: opacity 0.3s ease;
         &:hover {

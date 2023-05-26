@@ -7,37 +7,38 @@
             v-model="searchQuery"
             @keyup.enter="$emit('search', searchQuery)"
         />
+        <CharacterSheet />
     </div>
 </template>
 
 <script scoped>
+
+import CharacterSheet from './CharacterSheet.vue';
+
 export default {
     data() {
         return {
             searchQuery: '',
         };
     },
+    components: {
+        CharacterSheet
+    }
 };
 </script>
 
 <!-- Your styles here -->
 <style lang="scss">
-.searchbar-title {
-    color: $color-tertiary;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 6rem;
-}
 .searchbar-container {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     width: 100%;
 }
 .searchbar {
+    display: flex;
     font-size: 1.25rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    width: 50%;
+    width: 25%;
     outline: none;
     background-color: $color-darkest;
     border-radius: 8px;
