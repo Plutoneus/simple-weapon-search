@@ -38,7 +38,7 @@ export default {
 .searchbar {
     display: flex;
     font-size: 1.25rem;
-    width: 25%;
+    width: 33%;
     outline: none;
     background-color: $color-darkest;
     border-radius: 8px;

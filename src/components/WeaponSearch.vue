@@ -1,13 +1,15 @@
 <template>
-    <div>
+    <div class="weapon-search">
         <SearchBar @search="searchWeapons" />
+        <hr>
         <div class="row custom-row">
             <div v-for="weapon in weaponsWithNonZeroAttack" :key="weapon.id" class="col-12 col-sm-6 col-md-4 col-lg-2 custom-col">
                 <WeaponCard :weapon="weapon" />
             </div>
         </div>
         <div class="page-nav">
-            <button class="nav-arrow" @click="previousPage">◀</button>
+            <button v-if="(currentPage > 0)" class="nav-arrow" @click="previousPage">◀</button>
+            <button v-else class="disabled">◀</button>
             <button class="nav-arrow" @click="nextPage">▶</button>
         </div>
     </div>
@@ -84,6 +86,9 @@ export default {
 
 
 <style lang="scss">
+.weapon-search {
+    padding: .5rem 2rem;
+}
 .custom-row {
     margin: 0rem 3rem;
 }
@@ -100,18 +105,28 @@ export default {
     justify-content: center;
     align-items: center;
     .nav-arrow {
-        font-size: 1.5rem;
+        font-size: 2rem;
         color: $color-darkest;
         background-color: $color-accent;
         border: none;
-        padding: 0rem .5rem;
-        margin: 2rem auto; // updated this line
+        padding: 1.5rem 2rem;
+        margin: 2rem auto;
         border-radius: 4px;
         transition: opacity 0.3s ease;
         &:hover {
-            background-color: $color-accent;
             opacity: 80%;
         }
+    }
+    .disabled {
+        opacity: 20%;
+        font-size: 2rem;
+        color: $color-darkest;
+        background-color: $color-accent;
+        border: none;
+        padding: 1.5rem 2rem;
+        margin: 2rem auto;
+        border-radius: 4px;
+        transition: opacity 0.3s ease;
     }
 }
 </style>

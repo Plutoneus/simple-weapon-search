@@ -35,6 +35,7 @@ export default {
     border-radius: 2px;
 }
 .weapon-image {
+    transition: scale 0.3s ease, transform 0.3s ease;
     width: 100%;
     height: 180px;
     object-fit: contain;
@@ -52,9 +53,14 @@ export default {
     &:hover {
         // background-color: $color-darkblue !important;
         // box-shadow: 0px 4px $color-accent;
+        // scale: 105%;
         border: 1px solid $color-highlight !important;
-        box-shadow: 6px 6px $color-darkest;
-        transform: translate(-6px, -6px);
+        box-shadow: 4px 8px $color-darkest;
+        transform: translate(-0px, -8px);
+        .weapon-image {
+            scale: 120%;
+            transform: translate(-0px, 8px);
+        }
     }
 }
 
