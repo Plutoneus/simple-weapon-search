@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <CharacterSheet />
     <WeaponSearch />
   </div>
 </template>
