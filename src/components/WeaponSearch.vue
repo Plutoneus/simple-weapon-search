@@ -6,6 +6,10 @@
             <div v-for="weapon in weaponsWithNonZeroAttack" :key="weapon.id" class="col-12 col-sm-6 col-md-4 col-lg-2 custom-col">
                 <WeaponCard :weapon="weapon" />
             </div>
+            <div>
+                <h5 v-if="(noneFound)" class="text-center">No weapons found</h5>
+                <h5 v-if="(!noneFound && weapons.length > 0)" class="text-center">{{ currentPage + 1 }}</h5>
+            </div>
         </div>
         <div class="page-nav">
             <button v-if="(currentPage > 0)" class="nav-arrow" @click="previousPage">◀</button>
@@ -31,6 +35,7 @@ export default {
             weapons: [],
             currentPage: 0,
             currentQuery: "",
+            noneFound: false
         };
     },
     methods: {
@@ -40,7 +45,11 @@ export default {
             try {
                 const response = await axios.get(`https://eldenring.fanapis.com/api/weapons?name=${encodeURIComponent(searchQuery)}&limit=6&page=${this.currentPage}`);
                 this.weapons = response.data.data;
-                console.log(response.data.count)
+                this.noneFound = false
+
+                if (response.data.data.length == 0) {
+                    this.noneFound = true
+                }
             } catch (error) {
                 console.error(error);
             }
@@ -101,6 +110,7 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
+    opacity: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
