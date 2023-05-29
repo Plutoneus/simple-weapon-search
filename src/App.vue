@@ -17,6 +17,12 @@ export default {
 
 
 <style lang="scss">
+
+@font-face {
+    font-family: 'Mantinia';
+    src: url('/fonts/Mantinia-Regular.otf') format('opentype');
+}
+
 #app{
   margin-top: 4rem;
   margin-right: 3rem;
