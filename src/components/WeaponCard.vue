@@ -42,18 +42,14 @@ export default {
     padding: 0rem;
 }
 .card {
-    // width: 100%;
     transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, scale 0.3s ease, border 0.5s ease;
     background-color: $color-secondary !important;
     border: 1px solid $color-accent !important;
-    border-radius: 2px;
+    border-radius: 4px;
     color: $color-primary;
     scale: 100%;
     
     &:hover {
-        // background-color: $color-darkblue !important;
-        // box-shadow: 0px 4px $color-accent;
-        // scale: 105%;
         border: 1px solid $color-highlight !important;
         box-shadow: 4px 8px $color-darkest;
         transform: translate(-0px, -8px);
