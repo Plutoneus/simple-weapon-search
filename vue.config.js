@@ -6,5 +6,8 @@ module.exports = {
         additionalData: `@import "@/global.scss";`
       }
     }
-  }
+  },
+  publicPath: process.env.NODE_ENV === 'production'
+  ? '/simple-weapon-search/'
+  : '/'
 }
