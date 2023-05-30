@@ -156,6 +156,7 @@ export default {
         margin: 2rem auto;
         border-radius: 4px;
         transition: opacity 0.3s ease;
+        cursor: default;
     }
 }
 </style>

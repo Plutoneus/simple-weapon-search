@@ -30,7 +30,6 @@ export default {
 	font-size: 3rem;
 	color: $color-primary;
 }
-
 #app{
 	margin-top: 2rem;
 	margin-right: 2rem;

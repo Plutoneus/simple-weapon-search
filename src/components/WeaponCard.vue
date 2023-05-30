@@ -37,7 +37,7 @@ export default {
 .weapon-image {
     transition: scale 0.3s ease, transform 0.3s ease;
     width: 100%;
-    height: 180px;
+    height: 140px;
     object-fit: contain;
     padding: 0rem;
 }

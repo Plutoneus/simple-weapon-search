@@ -25,7 +25,6 @@
 	</div>
 </template>
 
-
 <script>
 import { mapMutations } from 'vuex';
 
@@ -67,6 +66,9 @@ form {
 	display: flex;
 	justify-content: center;
 }
+label {
+	font-family: 'Karla';
+}
 .stat-input {
 	display: flex;
 	outline: none;
@@ -74,7 +76,6 @@ form {
 	background-color: $color-darkest;
 	border-radius: 8px;
 	padding-left: .5rem;
-	// margin-bottom: 1rem;
 	color: $color-primary;
 	border: 2px solid $color-secondary;
 	

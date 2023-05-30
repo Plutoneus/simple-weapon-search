@@ -69,11 +69,9 @@ export default {
     margin-top: auto;
     font-family: 'Karla';
     th {
-        margin-right: -20px;
         color: $color-accent;
     }
     td {
-        margin-right: -20px;
         color: $color-primary;
     }
     .fail {
