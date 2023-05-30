@@ -2,7 +2,7 @@
     <div class="searchbar-container">
         <div class="col-lg-4">
             <div class="title-container">
-                <h1 class="text-center comp-title">Weapon Search</h1>
+                <h2 class="text-center comp-title">Weapon Search</h2>
             </div>
             <input
                 placeholder="Search for a weapon..."
@@ -15,7 +15,7 @@
         </div>
         <div class="col-lg-8">
             <div class="title-container">
-                <h1 class="text-center comp-title">Equip Check</h1>
+                <h2 class="text-center comp-title">Equip Check</h2>
             </div>
             <CharacterSheet />
         </div>
