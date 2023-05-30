@@ -32,7 +32,7 @@ export default {
 }
 
 #app{
-	margin-top: 1rem;
+	margin-top: 2rem;
 	margin-right: 2rem;
 	margin-left: 3rem;
 	border-radius: 8px;
