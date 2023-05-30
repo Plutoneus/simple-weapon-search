@@ -27,7 +27,6 @@ export default {
 	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 100;
 	margin-bottom: 2rem;
-	font-size: 3rem;
 	color: $color-primary;
 }
 #app{

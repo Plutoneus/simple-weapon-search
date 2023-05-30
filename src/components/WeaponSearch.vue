@@ -7,7 +7,7 @@
                 <WeaponCard :weapon="weapon" />
             </div>
             <div>
-                <h5 v-if="(noneFound)" class="text-center">No weapons found</h5>
+                <h3 v-if="(noneFound)" class="comp-title text-center">No weapons found...</h3>
             </div>
         </div>
         <div v-if="currentQuery" class="page-nav">
