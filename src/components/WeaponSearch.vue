@@ -10,13 +10,16 @@
                 <h5 v-if="(noneFound)" class="text-center">No weapons found</h5>
             </div>
         </div>
-        <div class="page-nav">
+        <div v-if="currentQuery" class="page-nav">
             <button v-if="(currentPage > 0)" class="nav-arrow" @click="previousPage">◀</button>
             <button v-else class="disabled">◀</button>
+
             <div v-if="(!noneFound && weapons.length > 0)" class="text-center">
-                <span>Page {{ currentPage + 1 }}</span>
+                <span>Page {{ currentPage + 1 }} / {{ totalPages }}</span>
             </div>
-            <button class="nav-arrow" @click="nextPage">▶</button>
+
+            <button v-if="!(currentPage+1 == totalPages)" class="nav-arrow" @click="nextPage">▶</button>
+            <button v-else class="disabled" @click="nextPage">▶</button>
         </div>
     </div>
 </template>
@@ -34,6 +37,7 @@ export default {
     data() {
         return {
             searchQuery: "",
+            allWeapons: [],
             weapons: [],
             currentPage: 0,
             currentQuery: "",
@@ -44,26 +48,39 @@ export default {
         async searchWeapons(searchQuery) {
             if (!searchQuery) return;
             this.currentQuery = searchQuery;  // Save the query
+            this.currentPage = 0; // Reset the page number to 0 for new searches
+            this.fetchWeapons();
+        },
+        
+        async fetchWeapons() {
             try {
-                const response = await axios.get(`https://eldenring.fanapis.com/api/weapons?name=${encodeURIComponent(searchQuery)}&limit=6&page=${this.currentPage}`);
-                this.weapons = response.data.data;
-                this.noneFound = false
-
-                if (response.data.data.length == 0) {
-                    this.noneFound = true
-                }
+                const response = await axios.get(`https://eldenring.fanapis.com/api/weapons?name=${encodeURIComponent(this.currentQuery)}`);
+                this.allWeapons = response.data.data; // Store all weapons
+                this.noneFound = this.allWeapons.length === 0;
+                this.totalPages = Math.ceil(this.allWeapons.length / 6);
+                this.fetchPage();
             } catch (error) {
                 console.error(error);
             }
         },
-        nextPage() {
-            this.currentPage += 1;
-            this.searchWeapons(this.currentQuery);
+
+        fetchPage() {
+            const start = this.currentPage * 6;
+            const end = start + 6;
+            this.weapons = this.allWeapons.slice(start, end);
         },
+        
+        nextPage() {
+            if (this.currentPage < this.totalPages - 1) {
+                this.currentPage += 1;
+                this.fetchPage();
+            }
+        },
+
         previousPage() {
             if (this.currentPage > 0) {
                 this.currentPage -= 1;
-                this.searchWeapons(this.currentQuery);
+                this.fetchPage();
             }
         },
     },
@@ -71,19 +88,19 @@ export default {
         weaponsWithNonZeroAttack() {
             // List of all possible attributes
             const allAttributes = ["Str", "Dex", "Fai", "Int", "Arc"];
-
+            
             return this.weapons.map(weapon => {
                 const combinedAttributes = allAttributes.map(attrName => {
                     const requiredAttr = weapon.requiredAttributes.find(attr => attr.name === attrName);
                     const scalingAttr = weapon.scalesWith.find(scale => scale.name === attrName);
-
+                    
                     return {
                         name: attrName,
                         amount: requiredAttr ? requiredAttr.amount : 0, // Req
                         scaling: scalingAttr ? scalingAttr.scaling : 0, // Scale
                     };
                 });
-
+                
                 return {
                     ...weapon,
                     attack: weapon.attack.filter(({ amount }) => amount !== 0),

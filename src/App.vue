@@ -19,10 +19,6 @@ export default {
 <style lang="scss">
 
 @font-face {
-	font-family: 'Lato';
-	src: url('../public/fonts/Lato-Regular.ttf') format('opentype');
-}
-@font-face {
 	font-family: 'Karla';
 	src: url('../public/fonts/Karla.ttf') format('opentype');
 }
