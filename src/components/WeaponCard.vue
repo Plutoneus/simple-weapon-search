@@ -44,6 +44,7 @@ export default {
 .card-title {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 100;
+	color: $color-primary;
 }
 .card {
     transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, scale 0.3s ease, border 0.5s ease;

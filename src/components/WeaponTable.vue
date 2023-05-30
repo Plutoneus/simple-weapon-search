@@ -67,6 +67,7 @@ export default {
 .statTable {
     color: $color-primary;
     margin-top: auto;
+    font-family: 'Karla';
     th {
         margin-right: -20px;
         color: $color-accent;

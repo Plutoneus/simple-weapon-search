@@ -1,17 +1,17 @@
 <template>
-  <div id="app">
-    <WeaponSearch />
-  </div>
+	<div id="app">
+		<WeaponSearch />
+	</div>
 </template>
 
 <script>
 import WeaponSearch from './components/WeaponSearch.vue';
 
 export default {
-  name: 'App',
-  components: {
-    WeaponSearch,
-}
+	name: 'App',
+	components: {
+		WeaponSearch,
+	}
 };
 </script>
 
@@ -19,21 +19,28 @@ export default {
 <style lang="scss">
 
 @font-face {
-    font-family: 'Mantinia';
-    src: url('../public/fonts/Mantinia-Regular.otf') format('opentype');
+	font-family: 'Lato';
+	src: url('../public/fonts/Lato-Regular.ttf') format('opentype');
+}
+@font-face {
+	font-family: 'Karla';
+	src: url('../public/fonts/Karla.ttf') format('opentype');
 }
 
 .comp-title {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 100;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
+	margin-bottom: 2rem;
+	font-size: 3rem;
+	color: $color-primary;
 }
 
 #app{
-  margin-top: 4rem;
-  margin-right: 3rem;
-  margin-left: 3rem;
-  border-radius: 8px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: $color-primary;
+	margin-top: 1rem;
+	margin-right: 2rem;
+	margin-left: 3rem;
+	border-radius: 8px;
+	font-family: 'Karla';
+	color: $color-primary;
 }
 </style>

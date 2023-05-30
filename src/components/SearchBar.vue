@@ -56,7 +56,7 @@ export default {
     padding-left: .5rem;
     color: $color-primary;
     border: 2px solid $color-secondary;
-    // margin-bottom: 1rem;
+    margin-top: 3rem;
     
     &:focus{
         border: 2px solid #6272a4;
