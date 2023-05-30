@@ -1,4 +1,4 @@
-# ⚔ Elden Ring Simple Weapon Search
+# 🗡 Elden Ring Simple Weapon Search 🔨
 
 ## Project Description
 - Search weapon data from the [Fanmade Elden Ring API](https://docs.eldenring.fanapis.com/)
