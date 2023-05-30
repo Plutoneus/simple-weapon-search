@@ -4,7 +4,7 @@
             <img :src="weapon.image" alt="weapon image" class="card-img-top weapon-image">
         </div>
         <div class="card-body">
-            <h1 class="card-title text-center">{{ weapon.name }}</h1>
+            <h2 class="card-title text-center">{{ weapon.name }}</h2>
             <!-- <p class="card-desc text-center">{{ weapon.category }}</p> -->
             <weapon-table :attack="weapon.attack" :requiredAttributes="weapon.requiredAttributes" />
         </div>
@@ -42,7 +42,8 @@ export default {
     padding: 0rem;
 }
 .card-title {
-    font-family: "Mantinia";
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
 }
 .card {
     transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, scale 0.3s ease, border 0.5s ease;

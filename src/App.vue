@@ -20,7 +20,12 @@ export default {
 
 @font-face {
     font-family: 'Mantinia';
-    src: url('/fonts/Mantinia-Regular.otf') format('opentype');
+    src: url('../public/fonts/Mantinia-Regular.otf') format('opentype');
+}
+
+.comp-title {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 100;
 }
 
 #app{

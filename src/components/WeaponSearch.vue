@@ -8,12 +8,14 @@
             </div>
             <div>
                 <h5 v-if="(noneFound)" class="text-center">No weapons found</h5>
-                <h5 v-if="(!noneFound && weapons.length > 0)" class="text-center">{{ currentPage + 1 }}</h5>
             </div>
         </div>
         <div class="page-nav">
             <button v-if="(currentPage > 0)" class="nav-arrow" @click="previousPage">◀</button>
             <button v-else class="disabled">◀</button>
+            <div v-if="(!noneFound && weapons.length > 0)" class="text-center">
+                <span>Page {{ currentPage + 1 }}</span>
+            </div>
             <button class="nav-arrow" @click="nextPage">▶</button>
         </div>
     </div>

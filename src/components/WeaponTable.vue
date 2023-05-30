@@ -63,7 +63,6 @@ export default {
 };
 </script>
 
-
 <style lang="scss">
 .statTable {
     color: $color-primary;
@@ -84,4 +83,3 @@ export default {
     }
 }
 </style>
-<!-- Your styles here -->
